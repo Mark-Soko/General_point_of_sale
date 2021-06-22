@@ -162,11 +162,11 @@
         <p id="notif"></p>
         <h5><i> Add category </i></h5>
       </center>
-      <form class="" action="" method="post">
+      <form class="" action="/add_category/" method="post">
         {% csrf_token %}
-          <input type="text" placeholder="category name">
-          <input type="text" placeholder="Category description">
-          <button style="margin-top:20px" id="addNewCustomer" class="btn  waves-effect waves-light modal-close cyan accent-4" type="submit" name="action">
+          <input type="text" placeholder="category name" name ="category_name">
+          <input type="text" placeholder="Category description" name ="category_description">
+          <button style="margin-top:20px" id="addNewCustomer" class="btn  waves-effect waves-light modal-close cyan accent-4" type="submit" name="">
             Add category
           </button>
       </form>
@@ -186,18 +186,19 @@
     <div class="col s12 m6 l6 loginForm">
       <center>
         <p id="notif"></p>
-        <h5><i> Add category </i></h5>
+        <h5><i> Add product </i></h5>
       </center>
-      <form class="" action="" method="post">
-          <input type="text" placeholder="Product name">
-          <input type="number" placeholder="Buying price">
-          <input type="number" placeholder="Selling price">
-          <select name = "Category">
-            <option value = "">Drinks</option>
-            <option value = "">Meals</option>
-            <option value = "">Salads</option>
+      <form class="" action="/add_product/" method="post">
+        {% csrf_token %}
+          <input type="text" placeholder="Product name" name="prod_name">
+          <input type="number" placeholder="Buying price" name="buy_price">
+          <input type="number" placeholder="Selling price" name="sell_price">
+          <select name = "prod_category">
+            <option value = "Drinks">Drinks</option>
+            <option value = "Meals">Meals</option>
+            <option value = "Salads">Salads</option>
          </select>
-         <input type="number" placeholder="Number of items">
+         <input type="number" placeholder="Number of items (Quantity)" name="quantity">
 
           <button style="margin-top:20px" id="addNewCustomer" class="btn  waves-effect waves-light modal-close cyan accent-4" type="submit" name="action">
             Add product
@@ -215,9 +216,6 @@
 
 
 
-
-
-
 <!-- Begining of add_new_customer Modal-->
   <div id="modal2" class="modal " style="background-color:#e8f3f8">
     <div class="modal-content">
@@ -226,11 +224,13 @@
           <p id="notif"></p>
           <h5><i> New customer </i></h5>
         </center>
-        <form class="" action="" method="post">
-            <input type="number" placeholder="Phone number">
-            <input type="text" placeholder="Customer Id number">
-            <input type="text" placeholder="Customer first name">
-            <input type="text" placeholder="Customer last name">
+        <form class="" action="/add_customer/" method="post">
+            {% csrf_token%}
+            <input type="number" placeholder="Phone number" name="phone_number">
+            <input type="text" placeholder="Customer Id number" name="cust_id">
+            <input type="text" placeholder="Customer first name" name="fname">
+            <input type="text" placeholder="Customer last name" name="lname">
+            <input type="text" placeholder="Customer Address" name="address">
             <button style="margin-top:20px" id="addNewCustomer" class="btn  waves-effect waves-light modal-close cyan accent-4" type="submit" name="action">
               Add customer
             </button>
@@ -405,18 +405,6 @@
 
 
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
 
   <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

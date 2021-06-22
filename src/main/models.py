@@ -8,7 +8,7 @@ class product(models.Model):
     Sell_price =models.FloatField()
     buy_price = models.FloatField()
     prod_category = models.CharField(max_length=16)
-    number_of_units = models.FloatField
+    number_of_units = models.FloatField()
     date_in = models.DateTimeField(auto_now=True)
 
     def __str__(self):
@@ -28,12 +28,12 @@ class cash_sales(models.Model):
 
 class category(models.Model):
     categ_id = models.AutoField(primary_key=True)
-    Categ_name = models.CharField(max_length=16)
-    Categ_desc = models.CharField(max_length=120)
+    categ_name = models.CharField(max_length=16)
+    categ_desc = models.CharField(max_length=120)
     date_added = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return str(self.Categ_name)
+        return str(self.categ_name)
 
 class  credited_customer(models.Model):
     cust_contact = models.IntegerField(primary_key=True)
